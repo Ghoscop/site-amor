@@ -8,15 +8,19 @@ function atualizarTempo() {
   const segundosTotal = Math.floor(diff / 1000);
 
   const anos = Math.floor(segundosTotal / (60 * 60 * 24 * 365));
-  const meses = Math.floor((segundosTotal % (60 * 60 * 24 * 365)) / (60 * 60 * 24 * 30.44));
-  const dias = Math.floor((segundosTotal % (60 * 60 * 24 * 30.44)) / (60 * 60 * 24));
+  const meses = Math.floor(
+    (segundosTotal % (60 * 60 * 24 * 365)) / (60 * 60 * 24 * 30.44)
+  );
+  const dias = Math.floor(
+    (segundosTotal % (60 * 60 * 24 * 30.44)) / (60 * 60 * 24)
+  );
   const horas = Math.floor((segundosTotal / (60 * 60)) % 24);
   const minutos = Math.floor((segundosTotal / 60) % 60);
   const segundos = segundosTotal % 60;
 
   let texto = "Estamos juntos há ";
   if (anos > 0) texto += `${anos}a `;
-  if (meses > 0 || anos > 0) texto += `${meses}m `;
+  if (meses > 0 || anos > 0) texto += `${meses}meses `;
   if (dias > 0 || meses > 0 || anos > 0) texto += `${dias}d `;
   texto += `${horas}h ${minutos}m ${segundos}s 💕`;
 
@@ -26,7 +30,6 @@ function atualizarTempo() {
 setInterval(atualizarTempo, 1000);
 atualizarTempo();
 
-
 const fotos = ["1.jpeg", "2.jpeg", "3.jpeg", "4.jpeg", "5.jpeg"];
 let atual = 0;
 setInterval(() => {
@@ -35,13 +38,13 @@ setInterval(() => {
 }, 3000);
 
 function criarCoracao() {
-  const coracao = document.createElement('div');
-  coracao.innerText = '💜';
-  coracao.style.position = 'fixed';
-  coracao.style.left = Math.random() * 100 + 'vw';
-  coracao.style.bottom = '0';
-  coracao.style.fontSize = '24px';
-  coracao.style.animation = 'subir 5s linear forwards';
+  const coracao = document.createElement("div");
+  coracao.innerText = "💜";
+  coracao.style.position = "fixed";
+  coracao.style.left = Math.random() * 100 + "vw";
+  coracao.style.bottom = "0";
+  coracao.style.fontSize = "24px";
+  coracao.style.animation = "subir 5s linear forwards";
   document.body.appendChild(coracao);
 
   setTimeout(() => coracao.remove(), 5000);
@@ -74,7 +77,7 @@ function criarExplosaoCoracao() {
 const partes = [
   "Por mais que seja apenas há 2 meses, você muda meu mundo a cada dia que passa, cada minuto, cada segundo. Todo lugar que vou, algo me lembra você, seja uma receita que penso na gente comendo e fazendo juntos.",
   "Até mesmo um Civic que vejo na rua me lembra do carro que hipoteticamente teremos na garagem.",
-  `Cada dia que passa, meu amor por você só cresce. Você é a luz dos meus dias e a paz das minhas noites. Você é a razão do meu sorriso. Sou grato por cada dia ao seu lado e feliz por poder te chamar de amor.<strong> Te amooo!!! 💖</strong>`
+  `Cada dia que passa, meu amor por você só cresce. Você é a luz dos meus dias e a paz das minhas noites. Você é a razão do meu sorriso. Sou grato por cada dia ao seu lado e feliz por poder te chamar de amor.<strong> Te amooo!!! 💖</strong>`,
 ];
 
 const texto = document.getElementById("textoDigitado");
@@ -91,7 +94,7 @@ function digitar() {
     charIndex++;
 
     if (charIndex > parte.length) {
-        if (parteAtual === partes.length - 1) return;
+      if (parteAtual === partes.length - 1) return;
       apagando = true;
       setTimeout(digitar, 2000);
       return;
@@ -113,7 +116,7 @@ digitar();
 
 const hoje = new Date();
 if (hoje.getDate() === 20) {
-    alert("Hoje fazemos mais um mês, meu amor! 💕");
+  alert("Hoje fazemos mais um mês, meu amor! 💕");
 }
 
 if (hoje.getDate() === 12 && hoje.getMonth() === 5) {
